@@ -1,6 +1,5 @@
 package com.ai4java.tribuo.examples.wine;
 
-
 import java.nio.file.Paths;
 
 import org.slf4j.Logger;
@@ -18,7 +17,6 @@ import org.tribuo.data.csv.CSVIterator;
 import org.tribuo.data.csv.CSVLoader;
 import org.tribuo.datasource.ListDataSource;
 import org.tribuo.evaluation.TrainTestSplitter;
-
 
 /** 
  * Implementing a basic classification task using Oracle Tribuo ML Library
@@ -75,12 +73,12 @@ public class WineQualityClassification {
 		evaluate(model, "testSet", testSet);
 	}
 
-	private void evaluate(Model<Label> model, String datasetName, Dataset<Label> trainData) {
+	private void evaluate(Model<Label> model, String datasetName, Dataset<Label> dataset) {
 		log.info("Results for " + datasetName + "---------------------");
 
 		// Evaluate the model on the training data (this is a useful debugging tool)
-		LabelEvaluator eval = new LabelEvaluator();
-		LabelEvaluation evaluation = eval.evaluate(model,trainData);
+		LabelEvaluator evaluator = new LabelEvaluator();
+		LabelEvaluation evaluation = evaluator.evaluate(model,dataset);
 
 		log.info("Accuracy: " + evaluation.accuracy());
 		log.info("Confusion Matrix: \n" + evaluation.getConfusionMatrix());
