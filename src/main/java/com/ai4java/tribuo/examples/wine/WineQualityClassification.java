@@ -76,7 +76,6 @@ public class WineQualityClassification {
 	private void evaluate(Model<Label> model, String datasetName, Dataset<Label> dataset) {
 		log.info("Results for " + datasetName + "---------------------");
 
-		// Evaluate the model on the training data (this is a useful debugging tool)
 		LabelEvaluator evaluator = new LabelEvaluator();
 		LabelEvaluation evaluation = evaluator.evaluate(model,dataset);
 
