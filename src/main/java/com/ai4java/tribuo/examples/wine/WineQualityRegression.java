@@ -4,15 +4,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tribuo.Dataset;
 import org.tribuo.Model;
 import org.tribuo.MutableDataset;
-import org.tribuo.Prediction;
 import org.tribuo.Trainer;
 import org.tribuo.common.tree.AbstractCARTTrainer;
 import org.tribuo.common.tree.RandomForestTrainer;
