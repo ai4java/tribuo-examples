@@ -59,17 +59,17 @@ public class WineQualityRegression {
 		log.info("Creating trainer....");
 
 		CARTRegressionTrainer subsamplingTree = new CARTRegressionTrainer(
-				Integer.MAX_VALUE, 				  // maxDepth - the maximum depth of the tree
+				Integer.MAX_VALUE,                // maxDepth - the maximum depth of the tree
 				AbstractCARTTrainer.MIN_EXAMPLES, // minChildWeight - the minimum node weight to consider it for a split
-				0.9f, 							  // fractionFeaturesInSplit - the fraction of features available in each split
-				new MeanSquaredError(), 		  // impurity - the impurity function to use to determine split quality
-				Trainer.DEFAULT_SEED 			  // seed - the Random Number Generator seed
+				0.9f,                             // fractionFeaturesInSplit - the fraction of features available in each split
+				new MeanSquaredError(),           // impurity - the impurity function to use to determine split quality
+				Trainer.DEFAULT_SEED              // seed - the Random Number Generator seed
 				);
 
 		trainer = new RandomForestTrainer<>(
-				subsamplingTree,		 // trainer - the tree trainer
-				new AveragingCombiner(), // combiner - the combining function for the ensemble
-				10						 // numMembers - the number of ensemble members to train
+				subsamplingTree,                  // trainer - the tree trainer
+				new AveragingCombiner(),          // combiner - the combining function for the ensemble
+				10                                // numMembers - the number of ensemble members to train
 				);
 	}
 
