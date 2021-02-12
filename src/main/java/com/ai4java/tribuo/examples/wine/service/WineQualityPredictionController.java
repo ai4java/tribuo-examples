@@ -25,20 +25,20 @@ import com.oracle.labs.mlrg.olcut.provenance.ProvenanceUtil;
 public class WineQualityPredictionController {
 
 	private static Logger log = LoggerFactory.getLogger(WineQualityPredictionController.class);
-	
+
 	private static final String MODEL_PATH = "src/main/resources/models/winequality-red-regressor.ser";
 
 	private final Model<Regressor> model;
-	
+
 	public WineQualityPredictionController() throws Exception {
 		model = loadModel();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private Model<Regressor> loadModel()  throws Exception {
-		
+
 		File modelFile = new File(MODEL_PATH);
-		
+
 		Model<Regressor> loadedModel;
 		try (ObjectInputStream ois = new ObjectInputStream(
 				new BufferedInputStream(new FileInputStream(modelFile)))) {
@@ -60,19 +60,19 @@ public class WineQualityPredictionController {
 	@PostMapping("/wineQuality")
 	public WineQualityPredictionResult predictQuality(
 			@RequestBody WineQualityPredictionRequest request) {
-		
+
 		Regressor outputPlaceHolder = RegressionFactory.UNKNOWN_REGRESSOR;
-		
+
 		// toExample() method within request class
 		Example<Regressor> example = new ArrayExample<>(
 				outputPlaceHolder, 
 				WineQualityPredictionRequest.featureNames, 
 				request.getFeatureValues()
 				);
-		
+
 		Prediction<Regressor> prediction = model.predict(example);
 		double result = prediction.getOutput().getValues()[0]; 
-		
+
 		return new WineQualityPredictionResult(result);
 	}
 }
