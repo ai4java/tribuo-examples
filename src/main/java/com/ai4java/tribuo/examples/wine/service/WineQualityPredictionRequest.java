@@ -2,7 +2,7 @@ package com.ai4java.tribuo.examples.wine.service;
 
 public class WineQualityPredictionRequest {
 
-	final static String[] featureNames = {"fixed acidity", "volatile acidity", "citric acid", "residual sugar", "chlorides", "free sulfur dioxide", "total sulfur dioxide", "density", "pH", "sulphates", "alcohol"};///TODO
+	final static String[] featureNames = {"fixed acidity", "volatile acidity", "citric acid", "residual sugar", "chlorides", "free sulfur dioxide", "total sulfur dioxide", "density", "pH", "sulphates", "alcohol"};
 
 	private double fixedAcidity;
 	private double volatileAcidity;
@@ -19,27 +19,9 @@ public class WineQualityPredictionRequest {
 	// 'no-args' constructor:
 	public WineQualityPredictionRequest() {}
 
-	// 'all-args' constructor:
-	public WineQualityPredictionRequest(double fixedAcidity, double volatileAcidity, double citricAcid,
-			double residualSugar, double chlorides, double freeSulfurDioxide, double totalSulfurDioxide, double density,
-			double pH, double sulphates, double alcohol) {
-
-		this.fixedAcidity = fixedAcidity;
-		this.volatileAcidity = volatileAcidity;
-		this.citricAcid = citricAcid;
-		this.residualSugar = residualSugar;
-		this.chlorides = chlorides;
-		this.freeSulfurDioxide = freeSulfurDioxide;
-		this.totalSulfurDioxide = totalSulfurDioxide;
-		this.density = density;
-		this.pH = pH;
-		this.sulphates = sulphates;
-		this.alcohol = alcohol;
-	}
-
+	
 	public double[] getFeatureValues() {
-		return new double[] {getFixedAcidity(), getVolatileAcidity(), getCitricAcid(), getResidualSugar(), getChlorides(),
-				getFreeSulfurDioxide(), getTotalSulfurDioxide(), getDensity(), getpH(), getSulphates(), getAlcohol()};
+		return new double[] {fixedAcidity, volatileAcidity, citricAcid, residualSugar, chlorides, freeSulfurDioxide, totalSulfurDioxide, density, pH, sulphates, alcohol};
 	}
 
 	// getters and setters:
