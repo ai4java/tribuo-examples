@@ -61,6 +61,8 @@ public class WineQualityPredictionController {
 	public WineQualityPredictionResult predictQuality(
 			@RequestBody WineQualityPredictionRequest request) {
 
+		log.info("Received " + request);
+		
 		Regressor outputPlaceHolder = RegressionFactory.UNKNOWN_REGRESSOR;
 
 		// toExample() method within request class
@@ -72,6 +74,8 @@ public class WineQualityPredictionController {
 
 		Prediction<Regressor> prediction = model.predict(example);
 		double result = prediction.getOutput().getValues()[0]; 
+
+		log.info("Prediction result = " + result);
 
 		return new WineQualityPredictionResult(result);
 	}

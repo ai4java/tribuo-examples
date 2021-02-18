@@ -68,4 +68,14 @@ public class WineQualityPredictionRequest {
 	public double getAlcohol() {
 		return alcohol;
 	}
+
+
+	@Override
+	public String toString() {
+		return "WineQualityPredictionRequest [fixedAcidity=" + fixedAcidity + ", volatileAcidity=" + volatileAcidity
+				+ ", citricAcid=" + citricAcid + ", residualSugar=" + residualSugar + ", chlorides=" + chlorides
+				+ ", freeSulfurDioxide=" + freeSulfurDioxide + ", totalSulfurDioxide=" + totalSulfurDioxide
+				+ ", density=" + density + ", pH=" + pH + ", sulphates=" + sulphates + ", alcohol=" + alcohol + "]";
+	}
+	
 }
