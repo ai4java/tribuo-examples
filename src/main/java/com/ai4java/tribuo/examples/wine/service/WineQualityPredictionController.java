@@ -65,7 +65,6 @@ public class WineQualityPredictionController {
 		
 		Regressor outputPlaceHolder = RegressionFactory.UNKNOWN_REGRESSOR;
 
-		// toExample() method within request class
 		Example<Regressor> example = new ArrayExample<>(
 				outputPlaceHolder, 
 				WineQualityPredictionRequest.featureNames, 
